@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Beyond MV{% endblock %}
+
+{% block logo %}
+{% load staticfiles %}
+<img src="{% static 'images/logo.jpg' %}" width="170px">
+正在播出
+<p>{{mv.name}}</p>
+{% endblock %}
+
+{% block menu %}
+<ul class="nav navbar-nav">
+    <li class="active"><a href="/">HOME</a></li>
+    {% for item in mv_list %}
+    <li>
+        <a href="{% url 'mv-url' forloop.counter0 %}">{{item.name}}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block window %}
+<iframe width="800" height="600" src="https://v.qq.com/iframe/player.html?vid={{mv.mvcode}}&autoplay=1" frameborder="0" allowfullscreen></iframe>
+{% endblock %}
+
+{% block footer %}
+{% if hour > 20 %}
+晚安,
+{% elif hour < 10 %}
+早安,
+{% elif 13 < hour < 20 %}
+下午好,
+{% endif %}
+现在时间：{{now}}
+<p>友情链接：<a href="http://www.beyonddiguo.net">Beyond帝国</a> </p>
+{% endblock %}
