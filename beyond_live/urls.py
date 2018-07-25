@@ -20,5 +20,6 @@ from app import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^(\d{1})/$', views.index, name='mv-url'),
+    url(r'^project2/$', views.project2, name='project2'),
     url(r'^admin/', include(admin.site.urls)),
 ]

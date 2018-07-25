@@ -20,17 +20,5 @@
 {% endblock %}
 
 {% block window %}
-<iframe width="800" height="600" src="https://v.qq.com/iframe/player.html?vid={{mv.mvcode}}&autoplay=1" frameborder="0" allowfullscreen></iframe>
-{% endblock %}
-
-{% block footer %}
-{% if hour > 20 %}
-晚安,
-{% elif hour < 10 %}
-早安,
-{% elif 13 < hour < 20 %}
-下午好,
-{% endif %}
-现在时间：{{now}}
-<p>友情链接：<a href="http://www.beyonddiguo.net">Beyond帝国</a> </p>
+<iframe width="800" height="480" src="https://v.qq.com/iframe/player.html?vid={{mv.mvcode}}&autoplay=1" frameborder="0" allowfullscreen></iframe>
 {% endblock %}

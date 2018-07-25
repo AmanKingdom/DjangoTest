@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}第二项目{% endblock %}
+
+
+{% block menu %}
+
+{% endblock %}
+
+
+{% block window %}
+<div class="container">
+    <form name="myform" action="/" method="get">
+        <label for="user_id">你的账号：</label>
+        <input id="user_id" type="text" name="user_id">
+        <label for="user_password">账号密码：</label>
+        <input id="user_password" type="password" name="user_password">
+        <input type="submit" value="登录">
+        <input type="reset" value="重填">
+    </form>
+</div>
+{% endblock %}

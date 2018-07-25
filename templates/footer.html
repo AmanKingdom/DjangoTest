@@ -1,0 +1,22 @@
+<div class="row" align="center">
+    <div class="col-sm-4 col-md-4">
+        <p>
+            <a href="{% url 'project2' %}">第二个项目·表单的使用</a>
+        </p>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <p>
+            友情链接：<a href="http://www.beyonddiguo.net">Beyond帝国</a>
+        </p>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        {% if hour > 20 %}
+        晚安,
+        {% elif hour < 10 %}
+        早安,
+        {% elif 13 < hour < 20 %}
+        下午好,
+        {% endif %}
+        现在时间：{{now}}
+    </div>
+</div>

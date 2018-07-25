@@ -16,3 +16,8 @@ def index(request, mvno='0'):
     html = template.render(locals())
 
     return HttpResponse(html)
+
+def project2(request):
+    template = get_template('project2index.html')
+    html = template.render(locals())
+    return HttpResponse(html)
