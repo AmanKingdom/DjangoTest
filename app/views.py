@@ -18,6 +18,29 @@ def index(request, mvno='0'):
     return HttpResponse(html)
 
 def project2(request):
+    now = datetime.now()
+    hour = now.timetuple().tm_hour
     template = get_template('project2index.html')
+    years = range(2018, 1899, -1)
+    try:
+        user_name = request.GET['user_name']
+        user_id = request.GET['user_id']
+        user_password = request.GET['user_password']
+        user_password2 = request.GET['user_password2']
+        user_type = request.GET.getlist('user_type')
+        for type in user_type:
+            print(type)
+    except:
+        user_name = None
+        user_id = None
+        user_password = None
+        user_password2 = None
+        user_type = None
+    if user_name is None and user_id is None and user_password is None and user_password2 is None:
+        verified = ''
+    elif user_name is not "" and user_password == user_password2 and user_password is not "":
+        verified = '注册成功'
+    else:
+        verified = '注册失败'
     html = template.render(locals())
     return HttpResponse(html)

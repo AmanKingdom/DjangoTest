@@ -1,21 +1,50 @@
 {% extends 'base.html' %}
 {% block title %}第二项目{% endblock %}
 
-
 {% block menu %}
-
+<ul class="nav navbar-nav">
+    <li><a href="/">首页</a></li>
+</ul>
 {% endblock %}
-
 
 {% block window %}
 <div class="container">
-    <form name="myform" action="/" method="get">
-        <label for="user_id">你的账号：</label>
-        <input id="user_id" type="text" name="user_id">
-        <label for="user_password">账号密码：</label>
-        <input id="user_password" type="password" name="user_password">
-        <input type="submit" value="登录">
-        <input type="reset" value="重填">
-    </form>
+    <h3>欢迎来到注册界面！</h3>
+    <form name="myform" action="{% url 'project2' %}" method="get">
+        <label for="user_name">您的昵称：</label>
+        <input id="user_name" type="text" name="user_name"><br>
+
+        <label for="user_id">您的账号：</label>
+        <input id="user_id" type="text" name="user_id"><br>
+
+        <label for="user_password">输入密码：</label>
+        <input id="user_password" type="password" name="user_password"><br>
+
+        <label for="user_password2">确认密码：</label>
+        <input id="user_password2" type="password" name="user_password2"><br>
+
+        <label>您的性别：</label>
+        <input type="radio" name="user_sex" value="男">男
+        <input type="radio" name="user_sex" value="女">女<br>
+
+        <label for="birthyear">出生年份：</label>
+        <select name="birthyear">
+            {% for year in years %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label>类型：</label>
+        <input type="checkbox" name="user_type" value="optimistic">乐观型
+        <input type="checkbox" name="user_type" value="quiet">安静型
+        <input type="checkbox" name="user_type" value="motivated">上进型
+        <input type="checkbox" name="user_type" value="lazy">偷懒型
+        <br>
+
+        <br>
+        <input type="submit" value="注册">
+        <input type="reset" value="重新填写">
+    </form><br>
+    <p>{{ verified }}</p>
 </div>
 {% endblock %}

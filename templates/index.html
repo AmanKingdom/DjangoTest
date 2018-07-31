@@ -10,7 +10,7 @@
 
 {% block menu %}
 <ul class="nav navbar-nav">
-    <li class="active"><a href="/">HOME</a></li>
+    <li class="active"><a href="/">首页</a></li>
     {% for item in mv_list %}
     <li>
         <a href="{% url 'mv-url' forloop.counter0 %}">{{item.name}}</a>
